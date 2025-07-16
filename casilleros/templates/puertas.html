@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Puertas desde Flask</title>
+  <style>
+    body {
+      margin: 0;
+
+      font-family: 'Gloria Hallelujah', cursive;
+
+      height: 100vh;
+    }
+
+
+
+    .grid {
+
+      justify-content: center;
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 20px;
+      padding: 70px;
+    }
+
+    .card {
+      width: 150px;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: white;
+
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .card.clickeada img {
+      filter: brightness(0);
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .numero {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: white;
+      display: none;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .card.clickeada .numero {
+      display: block;
+    }
+    .btn-formulario {
+      margin-top: 15px;
+      padding: 10px 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+  <div class= "gri">
+  <div class="grid">
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu1 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu2 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu3 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu4 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu5 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu6 }}</div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('clickeada')">
+      <img src="/static/casillero.png" alt="Casillero">
+      <div class="numero">{{ pu7 }}</div>
+    </div>
+     <a class="btn-formulario" href="/">cambiar números</a>
+  </div>
+</div>
+</body>
+</html>
