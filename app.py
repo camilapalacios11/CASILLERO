@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request 
+from flask import Flask, render_template, request
+import os  
 
 app = Flask(__name__)
 
@@ -6,6 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route('/puertas', methods=['GET', 'POST'])
 def las_puertas():
@@ -25,6 +27,7 @@ def las_puertas():
     return render_template("puertas.html")
 
 
-
-
-
+# ESTO ES CLAVE PARA RENDER
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Render define PORT
+    app.run(host="0.0.0.0", port=port)
